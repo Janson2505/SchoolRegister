@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SchoolRegister.Services.Interfaces
 {
-    class ISubjectService
+    public interface ISubjectService
     {
         SubjectVm AddOrUpdateSubject(AddOrUpdateSubjectVm addOrUpdateVm);
         SubjectVm GetSubject(Expression<Func<Subject, bool>> filterExpression);

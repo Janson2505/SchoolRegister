@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace SchoolRegister.Dal.EF
 {
     public class ApplicationDbContext : IdentityDbContext<User, Role, int>
