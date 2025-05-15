@@ -11,6 +11,9 @@ using AutoMapper;
 using Microsoft.Extensions.Logging;
 using SchoolRegister.ViewModels;
 using SchoolRegister.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
+using SchoolRegister.Dal.EF;
+using SchoolRegister.Model.DataModels;
 
 namespace SchoolRegister.Services.ConcreteServices
 {
