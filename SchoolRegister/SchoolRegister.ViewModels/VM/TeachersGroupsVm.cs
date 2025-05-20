@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace SchoolRegister.ViewModels.VM
 {
-    class TeachersGroupsVm
+    public class TeachersGroupsVm
     {
+        public int TeacherId { get; set; }
     }
 }

@@ -23,7 +23,7 @@ namespace SchoolRegister.Services.ConcreteServices
             IMapper mapper,
             ILogger logger) : base(dbContext, mapper, logger) { }
 
-        public IEnumerable<StudentVm> GetStudents(Expression<Func<Student, bool>> filterPredicate = null)
+        public IEnumerable<StudentVm> GetStudents(Expression<Func<Student, bool>> filterPredicate = null!)
         {
             var studentsEntities = DbContext.Users.OfType<Student>().AsQueryable();
             if (filterPredicate != null)

@@ -38,7 +38,7 @@ namespace SchoolRegister.Services.ConcreteServices
             return teacherVm;
         }
 
-        public IEnumerable<TeacherVm> GetTeachers(Expression<Func<Teacher, bool>> filterPredicate = null)
+        public IEnumerable<TeacherVm> GetTeachers(Expression<Func<Teacher, bool>> filterPredicate = null!)
         {
             var teacherEntities = DbContext.Users.OfType<Teacher>().AsQueryable();
             if (filterPredicate != null)

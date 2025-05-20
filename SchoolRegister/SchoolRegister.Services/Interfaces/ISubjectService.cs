@@ -5,7 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using SchoolRegister.ViewModels;
+using SchoolRegister.ViewModels.VM;
 
 namespace SchoolRegister.Services.Interfaces
 {
@@ -13,6 +13,6 @@ namespace SchoolRegister.Services.Interfaces
     {
         SubjectVm AddOrUpdateSubject(AddOrUpdateSubjectVm addOrUpdateVm);
         SubjectVm GetSubject(Expression<Func<Subject, bool>> filterExpression);
-        IEnumerable<SubjectVm> GetSubjects(Expression<Func<Subject, bool>> filterExpression = null);
+        IEnumerable<SubjectVm> GetSubjects(Expression<Func<Subject, bool>> filterExpression = null!);
     }
 }

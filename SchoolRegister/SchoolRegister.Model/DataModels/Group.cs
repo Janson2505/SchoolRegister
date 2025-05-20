@@ -12,8 +12,8 @@ namespace SchoolRegister.Model.DataModels
         [Key]
         public int Id { get; set; }
         [Required]
-        public string Name { get; set; }
-        public virtual IList<Student> Students { get; set; }
-        public virtual IList<SubjectGroup> SubjectGroups { get; set; }
+        public string Name { get; set; } = null!;
+        public virtual IList<Student>? Students { get; set; }
+        public virtual IList<SubjectGroup>? SubjectGroups { get; set; }
     }
 }

@@ -8,6 +8,6 @@ namespace SchoolRegister.ViewModels.VM
 {
     public class CreateGroupVm
     {
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
     }
 }

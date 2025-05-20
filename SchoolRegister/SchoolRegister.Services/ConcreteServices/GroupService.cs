@@ -51,7 +51,7 @@ namespace SchoolRegister.Services.ConcreteServices
             return Mapper.Map<GroupVm>(groupEntity);
         }
 
-        public IEnumerable<GroupVm> GetGroups(Expression<Func<Group, bool>> filterPredicate = null)
+        public IEnumerable<GroupVm> GetGroups(Expression<Func<Group, bool>> filterPredicate = null!)
         {
             var groupEntities = DbContext.Groups.AsQueryable();
             if (filterPredicate != null)
@@ -180,7 +180,7 @@ namespace SchoolRegister.Services.ConcreteServices
                 throw new ArgumentNullException($"subject is null");
             }
             subject.TeacherId = null;
-            subject.Teacher = null;
+            subject.Teacher = null!;
             DbContext.SaveChanges();
             var subjectVm = Mapper.Map<SubjectVm>(subject);
             return subjectVm;

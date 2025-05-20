@@ -9,7 +9,7 @@ namespace SchoolRegister.ViewModels.VM
 {
     public class GradeVm
     {
-        public string SubjectName { get; set; }
+        public string SubjectName { get; set; } = null!;
 
         public GradeScale GradeValue { get; set; }
     }

@@ -7,17 +7,17 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SchoolRegister.ViewModels.VM
 {
-    class SubjectVm
+    public class SubjectVm
     {
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
-        public string Description { get; set; }
+        public string Description { get; set; } = null!;
 
-        public IList<GroupVm> Groups { get; set; }
+        public IList<GroupVm>? Groups { get; set; }
 
-        public string TeacherName { get; set; }
+        public string TeacherName { get; set; } = null!;
         public int? TeacherId { get; set; }
     }
 }
