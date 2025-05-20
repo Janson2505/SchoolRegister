@@ -1,12 +1,10 @@
-﻿using AutoMapper;
-using SchoolRegister.Dal.EF;
+﻿using SchoolRegister.Dal.EF;
 using System;
+using AutoMapper;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 using Microsoft.Extensions.Logging;
-
 namespace SchoolRegister.Services.ConcreteServices
 {
     public abstract class BaseService
@@ -21,5 +19,4 @@ namespace SchoolRegister.Services.ConcreteServices
             Mapper = mapper;
         }
     }
-
 }

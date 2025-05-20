@@ -3,19 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
 
 namespace SchoolRegister.ViewModels.VM
 {
-    class GroupVm
+    public class TeacherVm
     {
         public int Id { get; set; }
-
-        [Required]
-        public string Name { get; set; }
-
-        public IList<StudentVm> Students { get; set; }
-
         public IList<SubjectVm> Subjects { get; set; }
+        public string Title { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
     }
 }

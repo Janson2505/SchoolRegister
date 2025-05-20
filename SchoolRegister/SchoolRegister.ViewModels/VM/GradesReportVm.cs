@@ -10,8 +10,12 @@ namespace SchoolRegister.ViewModels.VM
 {
     public class GradesReportVm
     {
-        public int StudentId { get; set; }
-        public string StudentName { get; set; }
-        public IEnumerable<GradeVm> Grades { get; set; }
+        public string StudentFirstName { get; set; }
+        public string StudentLastName { get; set; }
+        public string ParentName { get; set; }
+        public string GroupName { get; set; }
+        public IDictionary<string, List<GradeScale>> StudentGradesPerSubject { get; set; }
+        public double AverageGrade { get; set; }
+        public IDictionary<string, double> AverageGradePerSubject { get; set; }
     }
 }

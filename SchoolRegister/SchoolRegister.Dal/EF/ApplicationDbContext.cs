@@ -12,19 +12,23 @@ namespace SchoolRegister.Dal.EF
 {
     public class ApplicationDbContext : IdentityDbContext<User, Role, int>
     {
-        // table properties
-        public DbSet<Grade> Grades { get; set; }
-        public DbSet<Group> Groups { get; set; }
-        public DbSet<Subject> Subjects { get; set; }
-        public DbSet<SubjectGroup> SubjectGroups { get; set; }
+        public virtual DbSet<Grade> Grades { get; set; }
+        public virtual DbSet<Group> Groups { get; set; }
+        public virtual DbSet<Subject> Subjects { get; set; }
+        public virtual DbSet<SubjectGroup> SubjectGroups { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-        : base(options) { }
+            : base(options)
+        {
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            //configuration commands
+            //configuration commands            
             optionsBuilder.UseLazyLoadingProxies(); //enable lazy loading proxies
         }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -38,7 +42,7 @@ namespace SchoolRegister.Dal.EF
                 .HasValue<Teacher>((int)RoleValue.Teacher);
 
             modelBuilder.Entity<SubjectGroup>()
-                .HasKey(sg => new { sg.GroupId, sg.SubjectId });
+               .HasKey(sg => new { sg.GroupId, sg.SubjectId });
 
             modelBuilder.Entity<SubjectGroup>()
                 .HasOne(g => g.Group)
@@ -52,30 +56,13 @@ namespace SchoolRegister.Dal.EF
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Grade>()
-                .HasOne(s => s.Subject)
-                .WithMany(t => t.Grades)
-                .HasForeignKey(s => s.SubjectId)
+                .HasKey(g => new { g.DateOfIssue, g.StudentId, g.SubjectId });
+
+            modelBuilder.Entity<Grade>()
+                .HasOne(s => s.Student)
+                .WithMany(sg => sg.Grades)
+                .HasForeignKey(s => s.StudentId)
                 .OnDelete(DeleteBehavior.Restrict);
-
-            modelBuilder.Entity<Student>()
-                .HasOne(s => s.Group)
-                .WithMany(g => g.Students)
-                .HasForeignKey(s => s.GroupId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            modelBuilder.Entity<Student>()
-                .HasOne(s => s.Parent)
-                .WithMany(p => p.Students)
-                .HasForeignKey(s => s.ParentId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            modelBuilder.Entity<Subject>()
-                .HasOne(s => s.Teacher)
-                .WithMany(t => t.Subjects)
-                .HasForeignKey(s => s.TeacherId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-
         }
     }
 
