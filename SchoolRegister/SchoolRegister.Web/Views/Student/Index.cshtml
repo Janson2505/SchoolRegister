@@ -56,7 +56,6 @@
                     }
                     @if (User.IsInRole("Admin") || User.IsInRole("Teacher"))
                     {
-                        <a asp-controller="Teacher" asp-action="SendEmailToParent" asp-route-studentId="@item.Id">Send Email to Parent</a> @:|
                         <a asp-controller="Teacher" asp-action="AddGrade" asp-route-studentId="@item.Id">Add Grade</a> @:|
                     }
                     <a asp-action="Details" asp-route-studentId="@item.Id">Details</a> |
