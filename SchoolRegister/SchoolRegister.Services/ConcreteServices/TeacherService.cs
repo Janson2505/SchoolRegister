@@ -60,5 +60,10 @@ namespace SchoolRegister.Services.ConcreteServices
             var teacherGroupsVm = Mapper.Map<IEnumerable<GroupVm>>(teacherGroups);
             return teacherGroupsVm;
         }
+
+        public Task<bool> SendEmailToParentAsync(SendEmailToParentVm sendEmailToParentVm)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

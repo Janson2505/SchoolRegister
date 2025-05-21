@@ -14,5 +14,6 @@ namespace SchoolRegister.Services.Interfaces
         TeacherVm GetTeacher(Expression<Func<Teacher, bool>> filterPredicate);
         IEnumerable<TeacherVm> GetTeachers(Expression<Func<Teacher, bool>> filterPredicate = null!);
         IEnumerable<GroupVm> GetTeachersGroups(TeachersGroupsVm getTeachersGroups);
+        Task<bool> SendEmailToParentAsync(SendEmailToParentVm sendEmailToParentVm);
     }
 }
