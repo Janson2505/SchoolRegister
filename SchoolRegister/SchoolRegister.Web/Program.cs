@@ -9,6 +9,9 @@ using SchoolRegister.Services.ConcreteServices;
 using SchoolRegister.Services.Configuration.AutoMapperProfiles;
 using SchoolRegister.Services.Interfaces;
 using SchoolRegister.Web.Controllers;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation;
+
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container
@@ -37,11 +40,13 @@ builder.Services.Configure<RequestLocalizationOptions>(options => {
 });
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 builder.Services.AddControllersWithViews()
-    .AddViewLocalization()
-    .AddDataAnnotationsLocalization();
+.AddRazorRuntimeCompilation()
+.AddViewLocalization()
+.AddDataAnnotationsLocalization();
 builder.Services.AddRazorPages()
-    .AddViewLocalization()
-    .AddDataAnnotationsLocalization();
+.AddRazorRuntimeCompilation()
+.AddViewLocalization()
+.AddDataAnnotationsLocalization();
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

@@ -72,7 +72,7 @@ namespace SchoolRegister.Web.Areas.Identity.Pages.Account.Manage
                     ModelState.AddModelError(string.Empty, error.Description);
             }
             OnGet();
-            return RedirectToPage();
+            return Page();
         }
         private Tuple<User, Role> CreateUserBasedOnRole(RegisterNewUserVm inputModel)
         {
